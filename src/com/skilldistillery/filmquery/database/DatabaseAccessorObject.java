@@ -25,7 +25,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		Film film = null;
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
-			String sql = "SELECT id, first_name, last_name FROM actor WHERE id = ?";
+			String sql = "SELECT * FROM film WHERE id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, filmId);
 			ResultSet rs = stmt.executeQuery();
@@ -56,7 +56,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		Actor actor = null;
 		try {
 		Connection conn = DriverManager.getConnection(URL, user, pass);
-		String sql = "SELECT id, first_name, last_name FROM actor WHERE id = ?";
+		String sql = "SELECT * FROM actor WHERE id = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, actorId);
 		ResultSet actorResult = stmt.executeQuery();
@@ -78,7 +78,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		List<Actor> actors = new ArrayList<Actor>();
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
-			String sql = "SELECT id, first_name, last_name FROM actor" + 
+			String sql = "SELECT * FROM actor" + 
 			" JOIN film_actor on actor.id = film_actor.actor_id" +
 			"WHERE film.id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);

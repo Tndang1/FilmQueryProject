@@ -33,6 +33,14 @@ public class Film {
 		
 	}
 
+	@Override
+	public String toString() {
+		return title + ". Released in " + releaseYear + ", " + description
+				+ ". languageId=" + languageId + ". Rental duration: " + rentalDuration + " days. Rate: $" + rentalRate
+				+ ". Length: " + length + " minutes. Rating: " + rating
+				+ ". Special Features: " + specialFeatures;
+	}
+
 	public int getId() {
 		return id;
 	}
