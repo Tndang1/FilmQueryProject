@@ -18,10 +18,10 @@ public class FilmQueryApp {
 		app.launch();
 	}
 
-	private void test() {
-		Film film = db.findFilmById(1);
-		System.out.println(film);
-	}
+//	private void test() {
+//		Film film = db.findFilmById(1);
+//		System.out.println(film);
+//	}
 
 	private void launch() {
 		Scanner input = new Scanner(System.in);
@@ -97,7 +97,7 @@ public class FilmQueryApp {
 			}
 		}
 	}
-	
+
 	private void printActors(Film film) {
 		String listActors = "";
 		System.out.print("Featuring: ");
@@ -105,15 +105,15 @@ public class FilmQueryApp {
 		for (Actor actor : actors) {
 			listActors = listActors.concat(actor.getFullName() + ", ");
 		}
-		listActors = listActors.substring(0, listActors.length()-2) + ".";
+		listActors = listActors.substring(0, listActors.length() - 2) + ".";
 		System.out.println(listActors);
 		System.out.println();
 	}
-	
+
 	private void learnMore(Scanner input, Film film) {
 		System.out.println("Want to learn more? Y/N");
 		String selection = input.next().toLowerCase();
-		switch(selection) {
+		switch (selection) {
 		case "yes":
 		case "y":
 		case "1":

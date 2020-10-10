@@ -3,26 +3,26 @@ package com.skilldistillery.filmquery.entities;
 import java.util.List;
 
 public class Actor {
-	
+
 	private int id;
 	private String firstName;
 	private String lastName;
-	
+
 	public Actor(int id, String firstName, String lastName) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
-	
+
 	public Actor() {
-		
+
 	}
 
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -42,13 +42,11 @@ public class Actor {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
+
 	public String getFullName() {
 		String fullName = firstName + " " + lastName;
 		return fullName;
 	}
-
-
 
 	@Override
 	public int hashCode() {
@@ -83,7 +81,5 @@ public class Actor {
 			return false;
 		return true;
 	}
-	
-	
 
 }

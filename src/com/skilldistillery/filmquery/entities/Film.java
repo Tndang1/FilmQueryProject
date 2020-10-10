@@ -13,9 +13,10 @@ public class Film {
 	private double replacementCost;
 	private String rating;
 	private String specialFeatures;
-	
+
 	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
-			double rentalRate, int length, double replacementCost, String rating, String specialFeatures, String language) {
+			double rentalRate, int length, double replacementCost, String rating, String specialFeatures,
+			String language) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -30,28 +31,27 @@ public class Film {
 		this.specialFeatures = specialFeatures;
 		this.language = language;
 	}
-	
+
 	public Film() {
-		
+
 	}
 
 	@Override
 	public String toString() {
-		return title + " (" + releaseYear + ")\n" + description
-				+ ".\nRental duration: " + rentalDuration + " days. Rate: $" + rentalRate +
-				".\nLanguage: " + language + ". Length: " + length + " minutes. Rating: " + rating
-				+ ".\nSpecial Features: " + specialFeatures +"\n";
+		return title + " (" + releaseYear + ")\n" + description + ".\nRental duration: " + rentalDuration
+				+ " days. Rate: $" + rentalRate + ".\nLanguage: " + language + ". Length: " + length
+				+ " minutes. Rating: " + rating + ".\nSpecial Features: " + specialFeatures + "\n";
 	}
-	
+
 	public String shortToString() {
-		return "Film ID: " + id + ". " + title + " (" + releaseYear + "), rated " + rating + ". Language: " + language +
-				".\n" + description + ".\n";
+		return "Film ID: " + id + ". " + title + " (" + releaseYear + "), rated " + rating + ". Language: " + language
+				+ ".\n" + description + ".\n";
 	}
 
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -216,7 +216,5 @@ public class Film {
 			return false;
 		return true;
 	}
-
-	
 
 }
