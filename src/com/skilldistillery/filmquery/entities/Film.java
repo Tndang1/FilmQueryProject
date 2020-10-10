@@ -6,6 +6,7 @@ public class Film {
 	private String description;
 	private int releaseYear;
 	private int languageId;
+	private String language;
 	private int rentalDuration;
 	private double rentalRate;
 	private int length;
@@ -14,7 +15,7 @@ public class Film {
 	private String specialFeatures;
 	
 	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
-			double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
+			double rentalRate, int length, double replacementCost, String rating, String specialFeatures, String language) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -27,6 +28,7 @@ public class Film {
 		this.replacementCost = replacementCost;
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
+		this.language = language;
 	}
 	
 	public Film() {
@@ -35,10 +37,10 @@ public class Film {
 
 	@Override
 	public String toString() {
-		return title + ". Released in " + releaseYear + ", " + description
-				+ ". languageId=" + languageId + ". Rental duration: " + rentalDuration + " days. Rate: $" + rentalRate
-				+ ". Length: " + length + " minutes. Rating: " + rating
-				+ ". Special Features: " + specialFeatures;
+		return title + " (" + releaseYear + ")\n" + description
+				+ ".\nRental duration: " + rentalDuration + " days. Rate: $" + rentalRate +
+				".\nLanguage: " + language + ". Length: " + length + " minutes. Rating: " + rating
+				+ ".\nSpecial Features: " + specialFeatures +"\n";
 	}
 
 	public int getId() {
@@ -129,12 +131,21 @@ public class Film {
 		this.specialFeatures = specialFeatures;
 	}
 
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
+		result = prime * result + ((language == null) ? 0 : language.hashCode());
 		result = prime * result + languageId;
 		result = prime * result + length;
 		result = prime * result + ((rating == null) ? 0 : rating.hashCode());
@@ -166,6 +177,11 @@ public class Film {
 			return false;
 		if (id != other.id)
 			return false;
+		if (language == null) {
+			if (other.language != null)
+				return false;
+		} else if (!language.equals(other.language))
+			return false;
 		if (languageId != other.languageId)
 			return false;
 		if (length != other.length)
@@ -195,5 +211,7 @@ public class Film {
 			return false;
 		return true;
 	}
+
+	
 
 }

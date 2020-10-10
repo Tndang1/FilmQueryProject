@@ -42,6 +42,11 @@ public class Actor {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	
+	public String getFullName() {
+		String fullName = firstName + " " + lastName;
+		return fullName;
+	}
 
 
 
