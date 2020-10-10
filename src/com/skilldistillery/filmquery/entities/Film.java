@@ -42,6 +42,11 @@ public class Film {
 				".\nLanguage: " + language + ". Length: " + length + " minutes. Rating: " + rating
 				+ ".\nSpecial Features: " + specialFeatures +"\n";
 	}
+	
+	public String shortToString() {
+		return "Film ID: " + id + ". " + title + " (" + releaseYear + "), rated " + rating + ". Language: " + language +
+				".\n" + description + ".\n";
+	}
 
 	public int getId() {
 		return id;
