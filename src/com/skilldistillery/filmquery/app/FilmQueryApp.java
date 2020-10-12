@@ -101,12 +101,16 @@ public class FilmQueryApp {
 	private void printActors(Film film) {
 		String listActors = "";
 		System.out.print("Featuring: ");
-		List<Actor> actors = db.findActorsByFilmId(film.getId());
-		for (Actor actor : actors) {
-			listActors = listActors.concat(actor.getFullName() + ", ");
+		try {
+			List<Actor> actors = db.findActorsByFilmId(film.getId());
+			for (Actor actor : actors) {
+				listActors = listActors.concat(actor.getFullName() + ", ");
+			}
+			listActors = listActors.substring(0, listActors.length() - 2) + ".";
+			System.out.println(listActors);
+		} catch (Exception e) {
+			System.out.println("Unknown.");
 		}
-		listActors = listActors.substring(0, listActors.length() - 2) + ".";
-		System.out.println(listActors);
 		System.out.println();
 	}
 

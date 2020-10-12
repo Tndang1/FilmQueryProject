@@ -13,10 +13,11 @@ public class Film {
 	private double replacementCost;
 	private String rating;
 	private String specialFeatures;
+	private String category;
 
 	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
 			double rentalRate, int length, double replacementCost, String rating, String specialFeatures,
-			String language) {
+			String language, String category) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -30,6 +31,7 @@ public class Film {
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
 		this.language = language;
+		this.category = category;
 	}
 
 	public Film() {
@@ -38,14 +40,52 @@ public class Film {
 
 	@Override
 	public String toString() {
-		return title + " (" + releaseYear + ")\n" + description + ".\nRental duration: " + rentalDuration
-				+ " days. Rate: $" + rentalRate + ".\nLanguage: " + language + ". Length: " + length
-				+ " minutes. Rating: " + rating + ".\nSpecial Features: " + specialFeatures + "\n";
+		String longInfo = "Film ID: " + id + ". " + title;
+		if (releaseYear != 0) {
+			longInfo = longInfo + " (" + releaseYear + ")";
+		}
+		if (description != null) {
+			longInfo = longInfo + "\n" + description + ".";
+		}
+		
+		longInfo = longInfo	+ "\nRental duration: " + rentalDuration + " days. Rate: $" + rentalRate
+		+ ".\nLanguage: " + language + ".";
+		
+		if (length != 0) {
+		longInfo = longInfo + " Length: " + length + " minutes.";
+		}
+		
+		if (rating != null) {
+		longInfo = longInfo + " Rating: " + rating + ".";
+		}
+		
+		longInfo = longInfo + " Category: " + category + ".";
+		
+		if (specialFeatures != null) {
+			longInfo = longInfo + "\nSpecial Features: " + specialFeatures + ".";
+		}
+		return longInfo;
 	}
 
 	public String shortToString() {
-		return "Film ID: " + id + ". " + title + " (" + releaseYear + "), rated " + rating + ". Language: " + language
-				+ ".\n" + description + ".\n";
+		
+		
+		
+		String shortInfo = "Film ID: " + id + ". " + title;
+		if (releaseYear != 0) {
+			shortInfo = shortInfo + " (" + releaseYear + ")";
+		}
+		if (description != null) {
+			shortInfo = shortInfo + "\n" + description + ".";
+		}
+		
+		shortInfo = shortInfo	+ "\nLanguage: " + language + ".";
+
+		if (rating != null) {
+		shortInfo = shortInfo + " Rating: " + rating + ".\n";
+		}
+		
+		return shortInfo;
 	}
 
 	public int getId() {
